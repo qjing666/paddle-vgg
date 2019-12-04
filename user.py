@@ -56,8 +56,8 @@ for data in train_data():
     conv = exe.run(program=fluid.default_main_program(),feed=feeder.feed(pre_data), fetch_list=[conv1.name])
     train_set.append([conv[0][0].tolist(),data[1]])
     step += 1
-    if step == 2:
-    	break
+
+
 context = zmq.Context()
 socket = context.socket(zmq.REQ)
 socket.connect("tcp://localhost:5555")
